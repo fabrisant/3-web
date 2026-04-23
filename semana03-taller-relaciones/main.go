@@ -43,6 +43,7 @@ func main() {
 		fmt.Println(p.Nombre, p.Precio)
 	}
 
+	// Crear un pedido
 	pedido := cafeteria.Pedido{
 		ID:       1,
 		Cliente:  cliente1,
@@ -58,3 +59,15 @@ func main() {
 	fmt.Println("Total:", pedido.Total)
 
 }
+// . ¿Tuviste que poner Cliente, Producto y Pedido en el mismo paquete? ¿Por qué sí o por qué no?
+// Sí, porque Cliente, Producto y Pedido están relacionados entre sí y forman parte de la misma lógica de negocio de la cafetería.
+// y Separarlos en paquetes diferentes podría complicar la gestión de las dependencias y dificultar el mantenimiento del código.
+//  Además, al estar en el mismo paquete, se facilita el acceso a los datos y métodos relacionados entre estas entidades, lo que mejora la cohesión del código.
+
+// ¿Qué problema aparecería si intentaras separar Producto en un paquete aparte cuando Pedido lo tiene anidado?
+// Si se separara Producto en un paquete aparte, el paquete que contiene Pedido tendría que importar el paquete de Producto para poder usarlo. 
+// Esto crearía una dependencia entre los paquetes, lo que podría complicar la estructura del proyecto y hacer que sea más difícil de mantener. 
+
+//Comparando con el Día A (donde usamos IDs): ¿qué ventaja tiene el modelo con IDs para organizar el código en paquetes?
+// El modelo con IDs permite una mayor flexibilidad en la organización del código en paquetes, ya que las entidades pueden referenciarse entre sí a través de sus IDs 
+// sin necesidad de importar directamente los tipos de datos. Esto facilita la separación de responsabilidades y reduce las dependencias entre paquetes, lo que a su vez mejora la modularidad y mantenibilidad del código. En cambio, el modelo con anidamiento directo de tipos puede generar dependencias más fuertes entre los paquetes, dificultando su organización y mantenimiento.
